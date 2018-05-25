@@ -1,0 +1,100 @@
+
+<div class="row text-center justify-content-center">
+	<div class="container-c col-12 col-md-8 mt-5 mb-5">
+		<div class="header">
+			<%= link_to poems_path do %><h1 class="pt-3 mb-3">Poemy</h1><% end %>
+			<p>〜あなたの気持ちにぴったりの和歌を探そう〜</p>
+			<div class="navigation col-12 col-md-8 text-center">
+				<% if @poem.id == 1 %>
+				<% else %>
+				<div class="prev"><%= link_to "前の歌", poem_path(@poem_prev),class:"text-dark" %></div>
+				<% end %>
+
+				<% if @poem.id == 50 %>
+				<% else %>
+				<div class="next"><%= link_to "次の歌", poem_path(@poem_next),class:"text-dark" %></div>
+				<% end %>
+			</div>
+		</div>
+
+
+		<div class="content col-12 col-md-8 mt-3">
+			<div class="border-b mb-5"></div>
+			<div class="mb-5 image-width">
+				<%= image_tag @poem.image.url, height:"300px", width:"80%",class:"image-width" %>
+				<!-- <img src="/assets/sakura.jpg" height="300px" width="80%"> -->
+			</div>
+
+			</br>
+			<div class="poem text-left">
+				<strong>原文</strong>
+				<div class="border-b mb-3 mt-2"></div>
+				<p><%= @poem.foreword %></p></br>
+				<p>　<%= @poem.poem %></p></br>
+				<p class="text-right"><%= @poem.id %>番 <%#= @poem.author.author_name %><%= @poem.author %>　</p>
+			</div>
+
+			</br>
+			<div class="meaning text-left">
+				<strong>現代語訳</strong>
+				<div class="border-b mb-3 mt-2"></div>
+				<p>　<%= @poem.meaning %></p>
+			</div>
+
+			<ul class="mb-5"><% @poem.tags.each do |tag| %>
+				<li><%= tag.tag %></li>
+				<% end %>
+			</ul>
+
+			</br>
+			<div class="remark text-left mt-5">
+				<strong>鑑賞</strong>
+				<div class="border-b mb-3 mt-2"></div>
+				<p>　<%= @poem.remark %></p>
+			</div>
+
+			</br>
+			<div class="author text-left mt-3">
+				<p>詠み手：<strong><%= @poem.author %><%#= @poem.author.author_name %></strong></p>
+				<div class="border-b mb-3 mt-2"></div>
+				<p>　<%#= @poem.author.author_description %></p>
+			</div>
+			
+
+			</br>
+			<div class="grammar text-left mt-3">
+				<strong>覚えよう！　文法</strong>
+				<div class="border-b mb-3 mt-2"></div>
+				<% @poem.grammars.each do |grammar| %>
+					<p><%= grammar.grammar %></p>
+					<p><%= grammar.grammar_description %></p>
+				<% end %>
+			</div>
+
+			</br>
+			<div class="word text-left mt-3">
+				<strong>覚えよう！　単語</strong>
+				<div class="border-b mb-3 mt-2"></div>
+				<% @poem.words.each do |word| %>
+					<p><%= word.word %>:</p>
+					<p><%= word.word_description %></p>
+				<% end %>
+			</div>
+
+			</br>
+		</div>
+
+		<div class="navigation col-12 col-md-8 text-center">
+			<% if @poem.id == 1 %>
+			<% else %>
+				<div class="prev"><%= link_to "前の歌", poem_path(@poem_prev),class:"text-dark" %></div>
+			<% end %>
+
+			<% if @poem.id == 1008 %>
+			<% else %>
+				<div class="next"><%= link_to "次の歌", poem_path(@poem_next),class:"text-dark" %></div>
+			<% end %>
+			<div class="top"><%= link_to "トップページ", poems_path,class:"text-dark" %></div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="テーマに応じた和歌を探し、教養人を気取ろう">
+    <title>Poemy</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%#= favicon_link_tag 'sakura.jpg' %>
+  </head>
+
+  <body>
+    <div class="bg-color">
+      <%= yield %>
+    </div>
+  </body>
+</html>

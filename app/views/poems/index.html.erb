@@ -1,0 +1,49 @@
+	<div class="row text-center justify-content-center">
+		<div class="container-c col-12 col-md-8 mb-5">
+			
+			<div class="cover">
+				<h1>Poemy</h1>
+				<h4>~古今和歌集~</h4>
+				<div class="ransack">
+					<h5>今の気持ちを検索しよう</h5>
+					<%= search_form_for @q,class:"col-12 flex", url: poems_path do |f| %>
+						<%= f.search_field :id_eq, class:"col-2 col-sm-1",placeholder: "番号" %>
+						<%= f.search_field :poem_or_tags_tag_cont, class:"col-5 col-md-4",placeholder: "春" %>
+						<%= f.submit '検索',class:"btn btn-small btn-warning" %>
+					<% end %>
+				</div>
+			</div>
+
+
+
+
+			<div class="poems mt-5">
+				<h2 class="mb-3">本日のおすすめ６首</h2>
+				<p>＊現在開発中のため、春の歌50首のみです＊</p>
+				<div class="row row-eq-height justify-content-center text-left">
+					<% @poems.order("RANDOM()").limit(6).each do |poem| %>
+						<div class="card card-margin" style="width: 16rem;">
+							<%= link_to poem_path(poem), class:"text-dark" do %>
+						  		<div class="item-image">
+						  			<%= image_tag poem.image.url, height:"200px", width:"100%" %>
+						  			<!-- <img src="/assets/sakura.jpg" height="150px" width="100%"> -->
+						  		</div>
+						  	<% end %>
+						  	<div class="card-body">
+						  		<p><%= poem.id %>.　<%= poem.beginning %>...</p>
+						    	<p class="card-text">
+						    		<% poem.tags.each do |t| %>
+						    			<div class="tag-color"><%= t.tag %></div>
+						    		<% end %>
+						    	</p>
+						  	</div>
+						</div>
+					<% end %>
+				</div>
+				<div class="text-center justify-content-center float">
+					<p class="col-12">和歌の意味と鑑賞は<a href="http://www.milord-club.com/Kokin/index.htm", class="link-color">古今和歌集の部屋</a>
+					からお借りしました。</p>
+				</div>
+			</div>
+		</div>
+	</div>
