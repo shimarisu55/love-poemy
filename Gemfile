@@ -72,3 +72,4 @@ gem "font-awesome-rails"
 gem "kaminari"
 gem 'seed-fu', '~> 2.3'
 gem 'carrierwave', '~> 1.0'
+gem 'msgpack'
