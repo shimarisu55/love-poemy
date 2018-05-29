@@ -1,9 +1,7 @@
 source 'https://rubygems.org'
-gem "refile",require: "refile/rails", github: 'manfe/refile'
-gem "refile-mini_magick"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.3.7'
+#ruby '2.3.7'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
@@ -67,6 +65,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem "refile",require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
 gem 'ransack'
 gem "font-awesome-rails"
 gem "kaminari"
