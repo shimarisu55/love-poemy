@@ -21,7 +21,7 @@
 				<h2 class="mb-3">本日のおすすめ６首</h2>
 				<p>＊現在開発中のため、春の歌100首のみです＊</p>
 				<div class="row row-eq-height justify-content-center text-left">
-					<% @poems.order("RANDOM()").limit(6).each do |poem| %>
+					<% @poems.order("RANDOM()").limit(6).distinct.each do |poem| %>
 						<div class="card card-margin" style="width: 16rem;">
 							<%= link_to poem_path(poem), class:"text-dark" do %>
 						  		<div class="item-image">
