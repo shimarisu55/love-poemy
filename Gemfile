@@ -70,4 +70,4 @@ gem "refile-mini_magick"
 gem 'ransack'
 gem "font-awesome-rails"
 gem "kaminari"
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.3'
